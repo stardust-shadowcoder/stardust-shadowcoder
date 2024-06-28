@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)http://web.simmons.edu/~grovesd/comm244/notes/week3/css-linking#internal -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Attaching CSS to your document</title>
+		
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Dane Groves">
+	
+	<link rel="stylesheet" href="./Attaching CSS to your document_files/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="./Attaching CSS to your document_files/notes.css" media="screen">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script type="text/javascript" async="" src="./Attaching CSS to your document_files/js"></script><script async="" src="./Attaching CSS to your document_files/analytics.js.download"></script><script src="./Attaching CSS to your document_files/prism.js.download"></script>
+	<script src="./Attaching CSS to your document_files/jquery.min.js.download"></script>
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89923459-1', 'auto');
+  ga('send', 'pageview');
+
+</script></head>
+
+
+<body>
+	<p class="backlink"><a href="http://web.simmons.edu/~grovesd/comm244/week3">Back to Week 3 page »</a></p>
+
+<h1>Attaching CSS to Your Document</h1>
+
+<p>The CSS we create will act as a style sheet for our web pages. This is what will control the type, color, layout and even interactive pieces. In order for our HTML pages to make use of the CSS rules, we need to make sure that our HTML page references, or attaches, them in some way.</p>
+
+<p>There are three common ways to attach your stylesheets:</p>
+
+<ul>
+	<li><a href="http://web.simmons.edu/~grovesd/comm244/notes/week3/css-linking#external">External</a></li>
+	<li><a href="http://web.simmons.edu/~grovesd/comm244/notes/week3/css-linking#internal">Embedded / Internal</a></li>
+	<li><a href="http://web.simmons.edu/~grovesd/comm244/notes/week3/css-linking#inline">Inline</a></li>
+</ul>
+
+
+
+<h2 id="external">External Styles</h2>
+<p>The best method for attaching your CSS style sheets is to use <strong>external styles</strong>. With this method, you will write all your CSS in a separate file with a <code>.css</code> extension. You can then link to the CSS file from each of your HTML pages.</p>
+
+<!-- <p>You can add a link to your CSS styles to the top of your HTML pages. One stylesheet rules them all.</p>
+<p>You will almost always use external stylesheets.</p> -->
+
+<p>In the example below, we're linking to a CSS document called <code>styles.css</code>. <!-- Notice that we're using the <code>href</code> attribute, just as we did with the links using the <code>&lt;a&gt;</code> tag. --></p>
+
+<pre class="  language-css"><code class=" language-markup"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>External Style Sheet Example<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  
+  </code><code class=" highlight language-css">&lt;link rel=<span class="token string">"stylesheet"</span> href=<span class="token string">"styles.css"</span> media=<span class="token string">"screen"</span>&gt;</code><code class=" language-css">
+&lt;/head&gt;</code></pre>
+
+<p>External stylesheets use the <code>&lt;link&gt;</code> tag inside the <code>head</code> element.</p>
+
+<dl>
+	<dt>rel</dt>
+	<dd>The <dfn>rel</dfn> attribute explains the <strong>relation</strong> the link has to our document. The value in this case will always be <code>stylesheet</code>, since that is what we're creating a link to.</dd>
+	<dt>href</dt>
+	<dd>The <dfn>href</dfn> attribute is the link to our stylesheet. This works exactly the same as the <code>href</code> used in <code>a</code> tags.</dd>
+	<dt>media</dt>
+	<dd>The <dfn>media</dfn> attribute describes what type of media our stylesheets should apply to. There are a number of possible values, including both <code>screen</code> and <code>print</code>. You will most often use <code>screen</code>.</dd>
+</dl>
+
+
+
+<h2 id="internal">Embedded / Internal Styles</h2>
+<p>You can also add CSS styles to the top of your HTML page, inside the <code>head</code> element.</p>
+
+<pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Embedded / Internal Stylesheets Example<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  
+</code><code class="language-html highlight">  &lt;style&gt;                
+     p {                 
+        color: deeppink; 
+     }                   
+  &lt;/style&gt;</code><code class="language-html">       
+&lt;/head&gt;</code></pre>
+
+<p>This is a great way to quickly test a new style on your page. <strong>Reserve internal styles for testing and experimenting with new CSS rules.</strong></p>
+
+
+
+<h2 id="inline">Inline Styles</h2>
+<p>The final method is to add CSS styles <strong>inline</strong> with your HTML.</p>
+<p>To do this, you just have to use the <code>style</code> attribute and add the CSS declaration as the attribute value.</p>
+
+<pre class="  language-css"><code class=" language-markup">&lt;p </code><code class=" highlight language-css">style="<span class="token property">color</span><span class="token punctuation">:</span> deeppink"</code><code class="  language-css">&gt;This paragraph will be <span class="token string">"deep pink"</span>.&lt;/p&gt;</code></pre>
+
+<p>While this is very easy, it's also not very extensible.</p><p>
+</p><p>For example, to change all the paragraphs to red, we'd have to add the <code>style</code> attribute to each paragraph on in our HTML document.</p>
+
+<pre class=" language-markup"><code class=" language-markup"><span class="token comment" spellcheck="true">&lt;!-- Example of bad code. Don't do this --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: deeppink<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This paragraph will be "deep pink".<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: deeppink<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This another paragraph with "deep pink".<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: deeppink<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This is yet another paragraph with "deep pink".<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>color: deeppink<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>This is a lot of redundant CSS, which also means a lot of room for errors.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+
+<p>Generally, using inline styles are considered bad form. <strong>Don't do this.</strong></p>
+
+
+<h2 id="internal">Which Method is Best?</h2>
+<p><strong>External Style Sheets</strong>.</p>
+
+<ul>
+	<li>All of our styles are in one (hopefully) organized file</li>
+	<li>Styles will be applied to all of our html pages consistently</li>
+	<li>Since styles are only written once, there is less room for mistakes</li>
+	<li>The browser only has to download the style sheet once for all pages</li>
+</ul>
+
+
+	<p class="backlink"><a href="http://web.simmons.edu/~grovesd/comm244/week3">Back to Week 3 page »</a></p>
+
+
+</body></html>
